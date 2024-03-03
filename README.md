@@ -23,7 +23,7 @@ Last Updated: March 3rd, 2024
 [https://vaers.hhs.gov/data/datasets.html](https://vaers.hhs.gov/data/datasets.html)
 #### The current version of the Data Use Guide is here:
 [https://vaers.hhs.gov/docs/VAERSDataUseGuide_en_September2021.pdf](https://vaers.hhs.gov/docs/VAERSDataUseGuide_en_September2021.pdf)
-- The orignal zipped archives and Data Use Guide are also included in this project.
+- The Data Use Guides and other CDC Resources are also included in this project.
 
 ### For initial exploratory analysis and current progress, please see the Roadmap presentation and Documentation.
 
