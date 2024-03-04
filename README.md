@@ -4,7 +4,7 @@ Last Updated: March 3rd, 2024
 
 ### Focus and Scope
 - Determine the current state of completeness and accuracy of the VAERS database during the COVID-19 Pandemic.
-- Analyze possible correlations missing and outlying reports with other attributes in the dataset:
+- Analyze possible correlations of missing and outlying reports with other attributes in the dataset:
     -  Geographic & Demographic Information.
     -  Length & desnity of medical terminology within free-text symptom descriptions.
 - Determine whether incomplete & unreliable reports strongly correlate with increased news reporting on mRNA & COVID Vaccines.
