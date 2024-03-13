@@ -3,7 +3,7 @@ Author: Jared White  CC-BY-4.0
 Last Updated: March 3rd, 2024
 
 ### Focus and Scope
-- Determine the current state of completeness and accuracy of the VAERS database during the COVID-19 Pandemic.
+- Determine the current state of completeness and reliability of the VAERS database during the COVID-19 Pandemic.
 - Analyze possible correlations of missing and outlying reports with other attributes in the dataset:
     -  Geographic & Demographic Information.
     -  Length & desnity of medical terminology within free-text symptom descriptions.
@@ -30,3 +30,85 @@ Last Updated: March 3rd, 2024
 ### Community Feedback and Contribution is Welcome!
 - Particularly with the newscycle analysis portion of the project. If you're interested and have experience building webscrapers, please message me.
 - Also, insight from experts in healthcare and vaccine development is extremely valuable!
+
+### Some SQL Snippets From the Documentation Used to Create the Visuals in the Roadmap
+Get the number of reports with missing key values:
+
+```sql
+SELECT COUNT(*) FROM (
+    SELECT vaers_id, state, age_yrs, sex, numdays FROM data 
+        WHERE sex = "U"
+        OR state = ""
+        OR age_yrs = ""
+        OR numdays = "");
+            #271,112
+```
+
+Create Bins for missing values and combinations thereof:
+
+```sql
+WITH categories AS (
+    SELECT vaers_id AS id, 
+    CASE WHEN
+            sex = "U" AND state = "" AND age_yrs = "" AND numdays = "" THEN 'all'
+        WHEN sex = "U" AND state = "" AND age_yrs = ""  AND numdays != "" THEN 'sex+state+age'
+        WHEN sex = "U" AND state = "" AND age_yrs != "" AND numdays = "" THEN 'sex+state+days'
+        WHEN sex = "U" AND state != "" AND age_yrs = "" AND numdays = "" THEN 'sex+age+days'
+        WHEN sex = "U" AND state = "" AND age_yrs != "" AND numdays != "" THEN 'sex+state'
+        WHEN sex = "U" AND state != "" AND age_yrs != "" AND numdays = "" THEN 'sex+days'
+        WHEN sex = "U" AND state != "" AND age_yrs = "" AND numdays != ""  THEN 'sex+age'
+        WHEN sex = "U" AND state != "" AND age_yrs != "" AND numdays != "" THEN 'sex'
+ # CODE BELOW WAS WRITTEN BY GPT 3.5 BECAUSE THIS IS TEDIOUS
+        WHEN sex != 'U' AND state = '' AND age_yrs = '' AND numdays = '' THEN 'state+age+days'
+        WHEN sex != 'U' AND state = '' AND age_yrs != '' AND numdays = '' THEN 'state+days'
+        WHEN sex != 'U' AND state = '' AND age_yrs = '' AND numdays != '' THEN 'state+age'
+        WHEN sex != 'U' AND state = '' AND age_yrs != '' AND numdays != '' THEN 'state'
+        WHEN sex != 'U' AND state != '' AND age_yrs = '' AND numdays = '' THEN 'age+days'
+        WHEN sex != 'U' AND state != '' AND age_yrs = '' AND numdays != '' THEN 'age'
+        WHEN sex != 'U' AND state != '' AND age_yrs != '' AND numdays = '' THEN 'days'
+# END CODE WRITTEN BY GPT    
+    ELSE 'notmissing'
+    END AS 'missing_category'
+        FROM data)
+
+SELECT missing_category, COUNT(id) FROM categories
+    GROUP BY missing_category;
+```
+
+Looking into interval between vaccination and symptom onset:
+
+```sql
+SELECT AVG(interval) FROM (
+    SELECT vaers_id, numdays AS interval FROM data
+        WHERE numdays != "");
+
+SELECT vaers_id, numdays AS interval FROM data
+    WHERE numdays != ""
+    AND numdays > 180;
+            # 41,984 rows loaded
+
+WITH intervals AS (
+    SELECT vaers_id AS id,
+    CASE WHEN numdays = 0 THEN "same day" 
+        WHEN numdays > 0
+            AND numdays <= 7 THEN "1 day - 1 week"    
+        WHEN numdays > 7 
+            AND numdays <= 14 THEN "1-2 weeks"    
+        WHEN numdays > 14 
+            AND numdays <= 28 THEN "2-4 weeks"
+        WHEN numdays > 28
+            AND numdays <= 59 THEN "1-2 months"
+        WHEN numdays > 59
+            AND numdays <= 120 THEN "2-4 months"
+        WHEN numdays > 120
+            AND numdays <= 180 THEN "4-6 months"
+        WHEN numdays > 180
+            AND numdays <= 360 THEN "6 months to 1 year"
+        ELSE "greater than 1 year"
+    END AS 'int_cat' 
+    FROM data WHERE numdays != '')
+
+SELECT int_cat, COUNT(id) FROM intervals
+        JOIN data on intervals.id = data.vaers_id
+        GROUP BY int_cat;
+```
