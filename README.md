@@ -1,6 +1,10 @@
 # VAERS 2021 & 2022 Gap Analysis
-Author: Jared White  CC-BY-4.0
+
+Author: Jared White
+
 Last Updated: March 3rd, 2024
+
+Licensing: CC-BY-4.0 [Creative Commons Attribution](https://creativecommons.org/licenses/by/4.0/deed.en)
 
 ### Focus and Scope
 - Determine the current state of completeness and reliability of the VAERS database during the COVID-19 Pandemic.
@@ -9,6 +13,10 @@ Last Updated: March 3rd, 2024
     -  Length & desnity of medical terminology within free-text symptom descriptions.
 - Determine whether incomplete & unreliable reports strongly correlate with increased news reporting on mRNA & COVID Vaccines.
 - If analysis shows the need, use the insights gained to develop criteria for a reporting system that is more robust and reliable during times of heightened public awareness.
+
+### Long-Term Project Timeline (Subject to Change)
+
+![Six Month Timeline](https://github.com/HowlingHollow/VAERS_Gap_Analysis/blob/main/assets/Screenshot%20from%202024-03-13%2003-36-14.png)
 
 ## Please Understand the Data, its Nature, and Limitations Before Coming to Any Conclusions Based on This Project!
 #### Understand what VAERS is:
@@ -24,6 +32,11 @@ Last Updated: March 3rd, 2024
 #### The current version of the Data Use Guide is here:
 [https://vaers.hhs.gov/docs/VAERSDataUseGuide_en_September2021.pdf](https://vaers.hhs.gov/docs/VAERSDataUseGuide_en_September2021.pdf)
 - The Data Use Guides and other CDC Resources are also included in this project.
+
+### Categorization of Missing Values in Uncleaned Dataset
+###### Percents of 271,112 Reports (27.32% of entire dataset).
+![Caetgorization of Missing Values](https://github.com/HowlingHollow/VAERS_Gap_Analysis/blob/main/assets/VAERSmissingdata-VenDiagram.jpg)
+*Interval refers to number of days between vaccination and symptom onset.
 
 ### For initial exploratory analysis and current progress, please see the Roadmap presentation and Documentation.
 
