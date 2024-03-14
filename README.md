@@ -10,7 +10,7 @@ Licensing: CC-BY-4.0 [Creative Commons Attribution](https://creativecommons.org/
 - Determine the current state of completeness and reliability of the VAERS database during the COVID-19 Pandemic.
 - Analyze possible correlations of missing and outlying reports with other attributes in the dataset:
     -  Geographic & Demographic Information.
-    -  Length & desnity of medical terminology within free-text symptom descriptions.
+    -  Length & density of medical terminology within free-text symptom descriptions.
 - Determine whether incomplete & unreliable reports strongly correlate with increased news reporting on mRNA & COVID Vaccines.
 - If analysis shows the need, use the insights gained to develop criteria for a reporting system that is more robust and reliable during times of heightened public awareness.
 
