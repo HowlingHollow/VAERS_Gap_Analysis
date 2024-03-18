@@ -6,7 +6,7 @@ Last Updated: March 3rd, 2024
 
 Licensing: CC-BY-4.0 [Creative Commons Attribution](https://creativecommons.org/licenses/by/4.0/deed.en)
 
-### Purpoose and Scope
+### Purpose and Scope
 - Determine the current state of completeness and reliability of the VAERS database during the COVID-19 Pandemic.
 - Analyze possible correlations of missing and outlying reports with other attributes in the dataset:
     -  Geographic & Demographic Information.
