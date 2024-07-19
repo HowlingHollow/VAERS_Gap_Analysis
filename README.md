@@ -15,10 +15,6 @@ Licensing: CC-BY-4.0 [Creative Commons Attribution](https://creativecommons.org/
 - Determine whether incomplete & unreliable reports strongly correlate with increased news reporting on mRNA & COVID Vaccines.
 - If analysis shows the need, use the insights gained to develop criteria for a reporting system that is more robust and reliable during times of heightened public awareness.
 
-### Long-Term Project Timeline (Subject to Change)
-
-![Six Month Timeline](https://github.com/HowlingHollow/VAERS_Gap_Analysis/blob/main/assets/timeline.png)
-
 ### My Favorite Visualization Created with ggplot2
 This jittered strip plot shows the relationship between the length of free-text symptom descriptions (in characters) and a categorization of missing / outlying values from each report. Check out the analysis phase 1 [presentation](https://github.com/HowlingHollow/VAERS_Gap_Analysis/blob/main/VAERS-GAP-ANALYSIS-PHASE1.pptx) for more!
 ![strip plot](https://github.com/HowlingHollow/VAERS_Gap_Analysis/blob/main/assets/chart3desclength.png)
