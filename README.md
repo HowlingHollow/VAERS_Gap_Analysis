@@ -27,7 +27,7 @@ This jittered strip plot shows the relationship between the length of free-text 
 #### Read the Project [Documentation](https://github.com/HowlingHollow/VAERS_Gap_Analysis/blob/main/Documenation-Resources/DocumentationV03-02.md) and CDC Data Use Guide included in this project. The main points are:
 - The VAERS dataset is not comprehensive. Underreporting is a core limitation of all passive reporting systems.
 - It is not verifiable or reliable. Due to restrictions on personal health information, the public dataset is completely anonymized.
-- **Correlation does not equal Causation:** Nothing in the dataset or this project can prove any link between adverse reations or symptoms and a vaccine or its manufacturer.
+- **Correlation does not equal Causation:** Nothing in the dataset or this project can prove any link between reported symptoms and a vaccine or its manufacturer.
 #### The original archived dataset can be found at:
 [https://vaers.hhs.gov/data/datasets.html](https://vaers.hhs.gov/data/datasets.html)
 #### The current version of the Data Use Guide is here:
